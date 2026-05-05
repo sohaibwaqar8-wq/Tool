@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>ToolForge | Ultimate Image & PDF Toolkit — Smart Links</title>
-  <!-- Google Fonts + Font Awesome 6 (free) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>SmartImage Compressor | Optimize & Compress Images Online</title>
+  <meta name="description" content="Free professional image compression tool with adjustable quality level. Reduce image size while preserving visual clarity. Fast, private, fully client-side.">
+  <meta name="keywords" content="image compressor, compress jpeg, compress png, webp optimizer, reduce image size, online image tool">
+  <meta name="author" content="SmartImage Tools">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.smartimagecompressor.com/">
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="SmartImage Compressor - Dynamic Image Optimization">
+  <meta property="og:description" content="Adjust compression level, preview results, and download optimized images. Works with JPEG, PNG, WebP.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Image+Compressor">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Performance hint: preconnect for Google Fonts & Ads (optional non-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,608 +27,603 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafd;
-      color: #0f172a;
-      scroll-behavior: smooth;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 24px 20px 60px;
     }
 
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
     }
 
-    /* modern glassmorphism touches */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 20px 0;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .logo i {
-      background: none;
-      color: #2563eb;
+    /* Header & SEO friendly */
+    h1 {
       font-size: 2rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #334155;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #2563eb;
-    }
-
-    .btn-outline-light {
-      background: white;
-      border: 1px solid #cbd5e1;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .btn-outline-light:hover {
-      border-color: #2563eb;
-      background: #eff6ff;
-    }
-
-    /* hero section */
-    .hero {
-      padding: 60px 0 40px 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(to right, #0f2b5e, #2563eb, #3b82f6);
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3c72, #2b4c7c);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      letter-spacing: -0.01em;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: #475569;
-      max-width: 680px;
-      margin: 0 auto 32px;
-      line-height: 1.5;
+    .subhead {
+      color: #2c5a7a;
+      border-left: 4px solid #2c7da0;
+      padding-left: 16px;
+      margin-top: 8px;
     }
 
-    .search-tools {
-      max-width: 540px;
-      margin: 0 auto;
-      display: flex;
-      background: white;
-      border-radius: 60px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
-      overflow: hidden;
-      transition: 0.2s;
-    }
-
-    .search-tools input {
-      flex: 1;
-      padding: 16px 24px;
-      border: none;
-      font-size: 1rem;
-      outline: none;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .search-tools button {
-      background: #2563eb;
-      border: none;
-      padding: 0 28px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.2s;
-    }
-
-    .search-tools button:hover {
-      background: #1d4ed8;
-    }
-
-    /* category badges */
-    .category-badge {
+    /* two column layout: main content + ad sidebar */
+    .main-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 48px 0 32px;
-    }
-
-    .cat-btn {
-      background: white;
-      border: 1px solid #e2e8f0;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .cat-btn.active {
-      background: #2563eb;
-      color: white;
-      border-color: #2563eb;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    /* tools grid - cards with hyperlinks */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 30px;
-      margin: 40px 0 60px;
+      margin: 32px 0 40px;
     }
 
-    .tool-card {
+    .tool-area {
+      flex: 3;
+      min-width: 260px;
       background: white;
+      border-radius: 32px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      padding: 28px 24px;
+      transition: all 0.2s ease;
+    }
+
+    .ad-sidebar {
+      flex: 1.2;
+      min-width: 260px;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
       border-radius: 28px;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
-      border: 1px solid #eef2ff;
+      padding: 18px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2edf2;
+    }
+
+    .ad-container {
+      background: #f3f8fb;
+      border-radius: 20px;
+      padding: 16px 12px;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px dashed #bdd4e2;
+      min-height: 280px;
       display: flex;
       flex-direction: column;
-      text-decoration: none;
-      color: inherit;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ad-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #6f8faa;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .ad-placeholder-code {
+      background: #eef3f7;
+      padding: 14px;
+      border-radius: 14px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #1e4663;
+    }
+
+    .file-zone {
+      border: 2px dashed #b9d3e8;
+      border-radius: 28px;
+      padding: 32px 20px;
+      text-align: center;
+      background: #fefefe;
+      transition: 0.2s;
       cursor: pointer;
-      transform: translateY(0);
     }
 
-    .tool-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
-      border-color: #b9d0f8;
+    .file-zone:hover {
+      border-color: #2c7da0;
+      background: #fafeff;
     }
 
-    .tool-icon {
-      font-size: 3rem;
-      background: #f1f5f9;
-      padding: 32px 0;
-      text-align: center;
-      color: #1e40af;
-      border-bottom: 1px solid #eef2ff;
+    input[type="file"] {
+      display: none;
     }
 
-    .tool-info {
-      padding: 24px 20px 28px;
-      flex: 1;
-    }
-
-    .tool-info h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #0f172a;
-    }
-
-    .tool-info p {
-      color: #5b6e8c;
-      font-size: 0.9rem;
-      line-height: 1.45;
-      margin-bottom: 18px;
-    }
-
-    .tool-tag {
-      display: inline-block;
-      background: #eef2ff;
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 0.7rem;
+    .btn-primary {
+      background: #1e5a7d;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
       font-weight: 600;
-      color: #2563eb;
-      letter-spacing: 0.3px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    .badge-pdf {
-      background: #fee2e2;
-      color: #b91c1c;
+    .btn-primary:hover {
+      background: #0f4562;
+      transform: translateY(-1px);
     }
 
-    .badge-img {
-      background: #dcfce7;
-      color: #15803d;
+    .btn-download {
+      background: #2c7a47;
+    }
+    .btn-download:hover {
+      background: #1e5f38;
     }
 
-    /* footer */
-    .footer {
-      background: white;
-      border-top: 1px solid #eef2ff;
-      padding: 40px 0;
+    .quality-slider {
+      margin: 24px 0 18px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      background: #dbe9f0;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    input[type="range"]:focus {
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #1e5a7d;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .compress-value {
+      background: #eef2f5;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .preview-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 28px 0 20px;
+      justify-content: center;
+    }
+
+    .preview-card {
+      flex: 1;
+      min-width: 180px;
+      background: #f9fbfd;
+      border-radius: 24px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid #e5edf2;
+    }
+
+    .preview-img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #f0f4f7;
+    }
+
+    .info-text {
+      font-size: 13px;
+      color: #2c697e;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+
+    .size-badge {
+      background: #e2eef5;
+      border-radius: 28px;
+      padding: 4px 12px;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 28px 0 16px;
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, #cde0e8, transparent);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5c7f94;
       margin-top: 40px;
-      text-align: center;
-      color: #5b6e8c;
+      border-top: 1px solid #dce9f0;
+      padding-top: 28px;
     }
 
-    .footer a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      background: #f8fafc;
-      border-radius: 48px;
-      margin: 30px 0;
-    }
-
-    /* responsiveness */
-    @media (max-width: 720px) {
-      .hero h1 {
-        font-size: 2.2rem;
+    @media (max-width: 780px) {
+      body {
+        padding: 16px;
       }
-      .navbar {
-        flex-direction: column;
+      .tool-area, .ad-sidebar {
+        flex: 1 1 100%;
       }
-      .nav-links {
-        gap: 20px;
-        justify-content: center;
-      }
-      .tools-grid {
-        gap: 20px;
+      h1 {
+        font-size: 1.65rem;
       }
     }
   </style>
+  <!-- Google AdSense will be dynamically injected via ID. Ad slots prepared -->
 </head>
 <body>
-
 <div class="container">
-  <!-- Navigation with hyperlinks -->
-  <div class="navbar">
-    <a href="#" class="logo" style="text-decoration: none;">
-      <i class="fas fa-toolbox"></i>
-      <span>ToolForge</span>
-    </a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#image-tools" id="navImageLink">Image Tools</a>
-      <a href="#pdf-tools" id="navPdfLink">PDF Tools</a>
-      <a href="#all-tools" id="navAllLink">All Tools</a>
-      <a href="#pro" class="btn-outline-light"><i class="fas fa-crown"></i> Pro Plans</a>
+  <header>
+    <h1>⚡ SmartImage Compressor</h1>
+    <p class="subhead">Lossy & lossless-inspired compression • Adjust quality • Client-side & private</p>
+  </header>
+
+  <div class="main-grid">
+    <!-- MAIN TOOL SECTION -->
+    <div class="tool-area">
+      <div class="file-zone" id="uploadZone">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2c7da0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 12px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <p style="font-weight: 500;">Click or drag & drop image</p>
+        <p style="font-size: 13px; color: #5685a3;">JPEG, PNG, WebP (max 16MB)</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp">
+      </div>
+
+      <!-- Compression level slider -->
+      <div class="quality-slider">
+        <div class="slider-label">
+          <span>🎛️ Compression level</span>
+          <span class="compress-value" id="qualityValue">85%</span>
+        </div>
+        <input type="range" id="qualitySlider" min="10" max="100" value="85" step="1">
+        <div style="display: flex; justify-content: space-between; font-size:12px; color:#5c819b; margin-top: 6px;">
+          <span>⬇️ Smaller file (lower quality)</span>
+          <span>⬆️ Best quality (larger file)</span>
+        </div>
+        <p style="font-size: 12px; margin-top: 12px; background:#eef4f8; padding:6px 12px; border-radius:28px;">
+          💡 Higher compression = more size reduction. Works best with JPEG & WebP.
+        </p>
+      </div>
+
+      <!-- Preview & results -->
+      <div id="previewContainer" class="preview-area" style="display: none;">
+        <div class="preview-card">
+          <strong>📸 Original</strong>
+          <img id="originalPreview" class="preview-img" alt="Original preview">
+          <div class="info-text"><span id="originalSize">—</span></div>
+        </div>
+        <div class="preview-card">
+          <strong>✨ Compressed</strong>
+          <img id="compressedPreview" class="preview-img" alt="Compressed preview">
+          <div class="info-text"><span id="compressedSize">—</span> &nbsp;|&nbsp; <span id="savingRatio">—</span></div>
+          <button id="downloadBtn" class="btn-primary btn-download" style="margin-top: 12px; font-size:0.85rem; padding: 8px 18px;">💾 Download Compressed</button>
+        </div>
+      </div>
+      
+      <div id="noImageMessage" style="text-align:center; padding: 28px 0; color:#6c98b3;">
+        ⬆ Upload an image to start compression
+      </div>
+    </div>
+
+    <!-- ADS SIDEBAR: designated space for AdSense unit -->
+    <div class="ad-sidebar">
+      <div class="ad-container" id="googleAdSlot">
+        <div class="ad-label">— Advertisement —</div>
+        <!-- AdSense code insertion point: replace with your Ad Unit ID easily -->
+        <div id="adsenseTarget" style="width: 100%; min-height: 250px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+          <div style="background: #e9f0f5; border-radius: 16px; padding: 20px; text-align: center; width: 100%;">
+            <div style="font-weight: 500; margin-bottom: 8px;">📢 Ad Space</div>
+            <div style="font-size: 12px; color: #236b8e;">Insert your AdSense unit ID below</div>
+            <div style="margin-top: 12px;">
+              <input type="text" id="adsenseIdInput" placeholder="ca-pub-XXXXXXXXXXXXXX" style="padding: 8px 12px; border-radius: 28px; border:1px solid #cbdfe9; width: 100%; max-width: 220px; font-size:12px;">
+              <button id="applyAdBtn" style="margin-top: 8px; background: #1e5a7d; border:none; color:white; border-radius: 40px; padding: 5px 12px; font-size:12px; cursor:pointer;">Apply Ad Unit</button>
+            </div>
+            <div id="adDebugNote" style="font-size: 10px; margin-top: 10px; color:#347a54;"></div>
+          </div>
+        </div>
+        <!-- This container will host actual AdSense script when ID provided -->
+        <div id="dynamicAdHolder" style="margin-top: 12px;"></div>
+        <div class="ad-placeholder-code" style="margin-top: 15px;">
+          💰 Monetize: replace with your AdSense unit ID above. <br> Google AdSense ready.
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Hero + search (anchor target) -->
-  <div class="hero" id="home">
-    <h1>Image & PDF Toolkit<br>⚡ at your fingertips</h1>
-    <p>Compress, convert, edit, merge — over 35+ professional tools for images and PDFs. Lightning fast, secure, and free.</p>
-    <div class="search-tools">
-      <input type="text" id="searchInput" placeholder="Search tools... e.g., 'compress PDF' or 'resize image'">
-      <button id="searchBtn"><i class="fas fa-search"></i> Find</button>
-    </div>
-  </div>
-
-  <!-- Category filters + anchor sections -->
-  <div class="category-badge" id="categoryFilter">
-    <button data-cat="all" class="cat-btn active">✨ All Tools</button>
-    <button data-cat="image" class="cat-btn"><i class="fas fa-image"></i> Image Tools</button>
-    <button data-cat="pdf" class="cat-btn"><i class="fas fa-file-pdf"></i> PDF Tools</button>
-  </div>
-
-  <!-- Tools grid dynamic injection with hyperlinks (each card is a functional link) -->
-  <div id="toolsGridContainer" class="tools-grid"></div>
-</div>
-
-<!-- Footer with hyperlinks -->
-<div class="footer">
-  <div class="container">
-    <p><i class="fas fa-shield-alt"></i> ToolForge — <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a> | Secure client-side tools</p>
-    <p style="margin-top: 12px; font-size: 0.8rem;">© 2025 — <a href="#">Image Compressor</a>, <a href="#">PDF Merger</a>, <a href="#">Watermark</a>, <a href="#">OCR & more</a></p>
-  </div>
+  <footer>
+    <p>⚙️ Fully client-side compression – your images never leave your device. Supports JPEG, PNG, WebP. Optimized for SEO & performance.</p>
+    <p style="margin-top: 8px;">© SmartImage Compressor — Reduce image file size without losing essential quality.</p>
+  </footer>
 </div>
 
 <script>
-  // ---------- TOOL DATABASE with rich hyperlinks for individual tools (simulate tool pages) ----------
-  const toolsDatabase = [
-    { id: 1, name: "Image Resizer", description: "Instantly resize any image dimension, maintain quality.", category: "image", icon: "fas fa-expand-alt", badge: "Image Tool", link: "/tools/image-resizer" },
-    { id: 2, name: "Compress JPEG/PNG", description: "Reduce image file size without losing clarity.", category: "image", icon: "fas fa-compress-alt", badge: "Image Tool", link: "/tools/compress-image" },
-    { id: 3, name: "Crop & Rotate", description: "Crop, flip, rotate images in real-time.", category: "image", icon: "fas fa-crop-alt", badge: "Image Tool", link: "/tools/crop-rotate" },
-    { id: 4, name: "Image to WebP", description: "Convert images to modern WebP format.", category: "image", icon: "fas fa-file-image", badge: "Image Tool", link: "/tools/to-webp" },
-    { id: 5, name: "Add Watermark", description: "Protect your photos with custom text/logo watermark.", category: "image", icon: "fas fa-water", badge: "Image Tool", link: "/tools/watermark" },
-    { id: 6, name: "Background Remover", description: "AI-based background eraser (smart cutout).", category: "image", icon: "fas fa-magic", badge: "Image Tool", link: "/tools/bg-remover" },
-    { id: 7, name: "Image to PDF", description: "Combine multiple images into a single PDF.", category: "image", icon: "fas fa-file-pdf", badge: "Hybrid Tool", link: "/tools/image-to-pdf" },
-    { id: 8, name: "PDF Merger", description: "Join two or more PDFs into one document.", category: "pdf", icon: "fas fa-object-group", badge: "PDF Tool", link: "/tools/pdf-merger" },
-    { id: 9, name: "PDF Compressor", description: "Shrink PDF size while keeping quality.", category: "pdf", icon: "fas fa-file-archive", badge: "PDF Tool", link: "/tools/pdf-compress" },
-    { id: 10, name: "PDF to JPG", description: "Extract pages as high-quality JPG images.", category: "pdf", icon: "fas fa-file-export", badge: "PDF Tool", link: "/tools/pdf-to-jpg" },
-    { id: 11, name: "Split PDF", description: "Extract specific pages from PDF documents.", category: "pdf", icon: "fas fa-cut", badge: "PDF Tool", link: "/tools/split-pdf" },
-    { id: 12, name: "Protect PDF (Lock)", description: "Add password protection to confidential PDFs.", category: "pdf", icon: "fas fa-lock", badge: "PDF Tool", link: "/tools/lock-pdf" },
-    { id: 13, name: "Rotate PDF", description: "Rotate pages permanently in any PDF.", category: "pdf", icon: "fas fa-sync-alt", badge: "PDF Tool", link: "/tools/rotate-pdf" },
-    { id: 14, name: "Image Color Adjust", description: "Brightness, contrast, saturation, filters.", category: "image", icon: "fas fa-sliders-h", badge: "Image Tool", link: "/tools/color-adjust" },
-    { id: 15, name: "PDF Page Remover", description: "Delete unwanted pages from PDF file.", category: "pdf", icon: "fas fa-trash-alt", badge: "PDF Tool", link: "/tools/pdf-page-remover" },
-    { id: 16, name: "PNG to JPG", description: "Convert PNG images to JPG format.", category: "image", icon: "fas fa-exchange-alt", badge: "Image Tool", link: "/tools/png-to-jpg" },
-    { id: 17, name: "Extract PDF Images", description: "Pull all images from a PDF document.", category: "pdf", icon: "fas fa-images", badge: "PDF Tool", link: "/tools/pdf-extract-images" },
-    { id: 18, name: "Photo Editor Lite", description: "Filters, text overlay, stickers.", category: "image", icon: "fas fa-palette", badge: "Image Tool", link: "/tools/photo-editor" },
-    { id: 19, name: "OCR Image to Text", description: "Extract text from scanned images/PDFs (OCR).", category: "image", icon: "fas fa-microphone-alt", badge: "Advanced Tool", link: "/tools/ocr" },
-    { id: 20, name: "PDF Watermark", description: "Add text/image watermark to PDF pages.", category: "pdf", icon: "fas fa-copyright", badge: "PDF Tool", link: "/tools/pdf-watermark" },
-    { id: 21, name: "WebP to PNG", description: "Convert WebP images back to PNG.", category: "image", icon: "fas fa-file-code", badge: "Image Tool", link: "/tools/webp-to-png" },
-    { id: 22, name: "Animated GIF to MP4", description: "Turn GIFs into video clips quickly.", category: "image", icon: "fas fa-video", badge: "Image Tool", link: "/tools/gif-to-mp4" }
-  ];
+  (function() {
+    // DOM elements
+    const fileInput = document.getElementById('fileInput');
+    const uploadZone = document.getElementById('uploadZone');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValueSpan = document.getElementById('qualityValue');
+    const previewContainer = document.getElementById('previewContainer');
+    const noImageMessage = document.getElementById('noImageMessage');
+    const originalPreview = document.getElementById('originalPreview');
+    const compressedPreview = document.getElementById('compressedPreview');
+    const originalSizeSpan = document.getElementById('originalSize');
+    const compressedSizeSpan = document.getElementById('compressedSize');
+    const savingRatioSpan = document.getElementById('savingRatio');
+    const downloadBtn = document.getElementById('downloadBtn');
 
-  let activeCategory = "all";
-  let searchQuery = "";
+    // state
+    let currentOriginalFile = null;
+    let currentCompressedBlob = null;
+    let currentCompressedURL = null;
+    let originalImageURL = null;
 
-  function filterTools() {
-    return toolsDatabase.filter(tool => {
-      const matchesCategory = activeCategory === "all" || tool.category === activeCategory;
-      const matchesSearch = searchQuery === "" || tool.name.toLowerCase().includes(searchQuery.toLowerCase()) || tool.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }
-
-  function getBadgeClass(tool) {
-    if (tool.category === "pdf") return "badge-pdf";
-    return "badge-img";
-  }
-
-  // render tools with actual hyperlinks (anchor tags) — each card is a fully clickable link
-  function renderTools() {
-    const container = document.getElementById("toolsGridContainer");
-    const filtered = filterTools();
-
-    if (filtered.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <i class="fas fa-search" style="font-size: 3rem; color: #94a3b8;"></i>
-          <h3 style="margin-top: 20px;">No tools match</h3>
-          <p>Try different keywords or clear filters ✨</p>
-          <button id="resetFilterBtn" style="margin-top: 15px; background: #2563eb; border: none; padding: 8px 24px; border-radius: 40px; color: white; font-weight: 500; cursor: pointer;">Show All Tools</button>
-        </div>
-      `;
-      const resetBtn = document.getElementById("resetFilterBtn");
-      if (resetBtn) {
-        resetBtn.addEventListener("click", () => {
-          activeCategory = "all";
-          searchQuery = "";
-          document.getElementById("searchInput").value = "";
-          updateCategoryActive("all");
-          renderTools();
-          // also scroll to grid
-          document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
-        });
-      }
-      return;
+    // update compression label
+    function updateQualityLabel(value) {
+      qualityValueSpan.innerText = value + '%';
     }
 
-    // Build clickable cards — each wrapped in <a> with hyperlink from database
-    // adding target="_self" to simulate internal routing, but href uses meaningful links.
-    // real deployment would point to actual tool pages, but we simulate navigation with a toast + console.
-    // For better UX, each link will show an interactive preview but also preserve href.
-    container.innerHTML = filtered.map(tool => `
-      <a href="${tool.link}" class="tool-card" data-tool-id="${tool.id}" data-link="${tool.link}">
-        <div class="tool-icon">
-          <i class="${tool.icon}"></i>
-        </div>
-        <div class="tool-info">
-          <h3>${tool.name}</h3>
-          <p>${tool.description}</p>
-          <span class="tool-tag ${getBadgeClass(tool)}">
-            <i class="${tool.category === 'pdf' ? 'fas fa-file-pdf' : 'fas fa-image'}"></i> ${tool.badge}
-          </span>
-          <div style="margin-top: 12px; font-size: 0.7rem; color: #2563eb; display: inline-flex; align-items: center; gap: 4px;">
-            <i class="fas fa-external-link-alt"></i> <span>Launch tool →</span>
-          </div>
-        </div>
-      </a>
-    `).join('');
+    qualitySlider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      updateQualityLabel(val);
+      if (currentOriginalFile) {
+        compressAndPreview(currentOriginalFile, parseInt(val));
+      }
+    });
 
-    // Intercept clicks to provide a smooth demo + actual hyperlink behavior (both work)
-    // we want hyperlinks to behave normally, but also notify user of navigation (demo friendly)
-    document.querySelectorAll('.tool-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        // we do NOT prevent default, so the link opens normally.
-        // but we also show a nice toast to indicate the tool is launching.
-        const toolId = card.getAttribute('data-tool-id');
-        const toolItem = toolsDatabase.find(t => t.id == toolId);
-        if (toolItem) {
-          showToast(`🔗 Opening: ${toolItem.name} — redirecting to tool page...`, 1500);
-        } else {
-          showToast(`🚀 Launching professional tool environment.`, 1200);
+    // handle file selection
+    function handleFile(file) {
+      if (!file) return;
+      if (!file.type.match('image/jpeg') && !file.type.match('image/png') && !file.type.match('image/webp')) {
+        alert('Unsupported format. Please upload JPEG, PNG, or WebP.');
+        return;
+      }
+      if (file.size > 16 * 1024 * 1024) {
+        alert('File too large (max 16MB).');
+        return;
+      }
+      currentOriginalFile = file;
+      // Show original preview
+      if (originalImageURL) URL.revokeObjectURL(originalImageURL);
+      originalImageURL = URL.createObjectURL(file);
+      originalPreview.src = originalImageURL;
+      originalSizeSpan.innerText = formatBytes(file.size);
+      
+      // compress with current quality
+      compressAndPreview(file, parseInt(qualitySlider.value));
+    }
+
+    // compression engine using canvas
+    function compressAndPreview(file, qualityPercent) {
+      // qualityPercent: 0-100 -> map to 0-1 for canvas
+      const qualityRatio = qualityPercent / 100;
+      const img = new Image();
+      const objectUrl = URL.createObjectURL(file);
+      img.onload = function() {
+        URL.revokeObjectURL(objectUrl);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        
+        let mimeType = file.type;
+        // For PNG we also respect quality but canvas lossy compression might not be perfect: but we force JPEG if high compression? Better keep same mime but with PNG using png quality is ignored in toBlob (PNG lossless). To achieve size reduction on PNG, we convert to JPEG or WebP based on slider + original mime.
+        // Strategy: For better UX: if file is PNG and quality < 95% we convert to WebP (if supported) or JPEG to reduce size significantly; but we keep transparency? we'll preserve transparency if PNG -> PNG but quality won't compress. So we offer dynamic: PNG -> WebP/JPEG based on quality threshold.
+        // Actually best robust: compress to same mime if jpeg; for png use webp when quality less than 95 for compression. Let's implement smart:
+        let outputMime = file.type;
+        if (file.type === 'image/png') {
+          // if quality <= 90% output webp (better compression) else keep png (transparency)
+          if (qualityPercent <= 90 && typeof canvas.toBlob === 'function') {
+            outputMime = 'image/webp';
+          } else {
+            outputMime = 'image/png';
+          }
+        } else if (file.type === 'image/jpeg') {
+          outputMime = 'image/jpeg';
+        } else if (file.type === 'image/webp') {
+          outputMime = 'image/webp';
         }
-        // small delay to let toast appear before navigation (optional but nice)
-        // but we don't block navigation. For smoothness we allow default.
-      });
-    });
-  }
+        
+        // fallback if webp not supported (browser)
+        const testWebp = outputMime === 'image/webp';
+        if (testWebp) {
+          // check support quickly
+          const testCanvas = document.createElement('canvas');
+          if (!testCanvas.toBlob || !(testCanvas.toBlob && testCanvas.toBlob.toString().indexOf('image/webp') === -1)) {
+            // just use jpeg if webp unsupported
+            if (file.type === 'image/png' && qualityPercent <= 95) outputMime = 'image/jpeg';
+          }
+        }
 
-  // elegant toast system
-  function showToast(message, duration = 2200) {
-    let toastContainer = document.getElementById('customToastContainer');
-    if (!toastContainer) {
-      toastContainer = document.createElement('div');
-      toastContainer.id = 'customToastContainer';
-      toastContainer.style.position = 'fixed';
-      toastContainer.style.bottom = '28px';
-      toastContainer.style.left = '50%';
-      toastContainer.style.transform = 'translateX(-50%)';
-      toastContainer.style.zIndex = '9999';
-      toastContainer.style.display = 'flex';
-      toastContainer.style.flexDirection = 'column';
-      toastContainer.style.alignItems = 'center';
-      toastContainer.style.gap = '10px';
-      toastContainer.style.pointerEvents = 'none';
-      document.body.appendChild(toastContainer);
+        // Convert to blob with quality (for JPEG/WebP respects quality)
+        canvas.toBlob(function(blob) {
+          if (!blob) {
+            console.warn('Compression failed');
+            return;
+          }
+          if (currentCompressedURL) URL.revokeObjectURL(currentCompressedURL);
+          currentCompressedBlob = blob;
+          currentCompressedURL = URL.createObjectURL(blob);
+          compressedPreview.src = currentCompressedURL;
+          const compressedBytes = blob.size;
+          const originalBytes = file.size;
+          compressedSizeSpan.innerText = formatBytes(compressedBytes);
+          const savedPercent = ((originalBytes - compressedBytes) / originalBytes * 100).toFixed(1);
+          let savingText = `↓ saved ${savedPercent}%`;
+          if(savedPercent < 0) savingText = `↑ increased ${Math.abs(savedPercent)}% (try lower quality)`;
+          savingRatioSpan.innerText = savingText;
+          previewContainer.style.display = 'flex';
+          noImageMessage.style.display = 'none';
+        }, outputMime, qualityRatio);
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        alert('Error loading image');
+      };
+      img.src = objectUrl;
     }
-    const toast = document.createElement('div');
-    toast.innerText = message;
-    toast.style.background = '#0f172ad9';
-    toast.style.backdropFilter = 'blur(10px)';
-    toast.style.color = 'white';
-    toast.style.padding = '10px 24px';
-    toast.style.borderRadius = '40px';
-    toast.style.fontSize = '0.85rem';
-    toast.style.fontWeight = '500';
-    toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
-    toast.style.border = '1px solid rgba(255,255,255,0.15)';
-    toast.style.fontFamily = "'Inter', sans-serif";
-    toast.style.pointerEvents = 'none';
-    toastContainer.appendChild(toast);
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transition = 'opacity 0.25s';
-      setTimeout(() => toast.remove(), 250);
-    }, duration);
-  }
 
-  function updateCategoryActive(category) {
-    const btns = document.querySelectorAll('.cat-btn');
-    btns.forEach(btn => {
-      const btnCat = btn.getAttribute('data-cat');
-      if (btnCat === category) btn.classList.add('active');
-      else btn.classList.remove('active');
-    });
-  }
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
 
-  function bindCategoryEvents() {
-    const catBtns = document.querySelectorAll('.cat-btn');
-    catBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const category = btn.getAttribute('data-cat');
-        activeCategory = category;
-        updateCategoryActive(category);
-        renderTools();
-        // Smooth scroll slightly to tools section
-        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  }
-
-  function bindSearchEvents() {
-    const searchBtn = document.getElementById('searchBtn');
-    const searchInput = document.getElementById('searchInput');
-    const performSearch = () => {
-      searchQuery = searchInput.value.trim();
-      renderTools();
-      if (searchQuery) {
-        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+    // download compressed
+    downloadBtn.addEventListener('click', () => {
+      if (currentCompressedBlob && currentOriginalFile) {
+        let ext = '.jpg';
+        if (currentCompressedBlob.type === 'image/png') ext = '.png';
+        else if (currentCompressedBlob.type === 'image/webp') ext = '.webp';
+        else ext = '.jpg';
+        const originalName = currentOriginalFile.name.split('.')[0] || 'compressed';
+        const downloadLink = document.createElement('a');
+        downloadLink.href = currentCompressedURL;
+        downloadLink.download = `${originalName}_compressed_${qualitySlider.value}q${ext}`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      } else {
+        alert('No compressed image available. Upload an image first.');
       }
-    };
-    searchBtn.addEventListener('click', performSearch);
-    searchInput.addEventListener('keyup', (e) => {
-      if (e.key === 'Enter') performSearch();
     });
-  }
 
-  // Additional hyperlink navigation for top menu links (anchor smooth)
-  function bindNavHyperlinks() {
-    const navImage = document.getElementById('navImageLink');
-    const navPdf = document.getElementById('navPdfLink');
-    const navAll = document.getElementById('navAllLink');
-
-    if (navImage) {
-      navImage.addEventListener('click', (e) => {
-        e.preventDefault();
-        activeCategory = "image";
-        searchQuery = "";
-        document.getElementById("searchInput").value = "";
-        updateCategoryActive("image");
-        renderTools();
-        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
-        showToast("Showing all Image tools 🖼️");
-      });
-    }
-    if (navPdf) {
-      navPdf.addEventListener('click', (e) => {
-        e.preventDefault();
-        activeCategory = "pdf";
-        searchQuery = "";
-        document.getElementById("searchInput").value = "";
-        updateCategoryActive("pdf");
-        renderTools();
-        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
-        showToast("Showing all PDF tools 📄");
-      });
-    }
-    if (navAll) {
-      navAll.addEventListener('click', (e) => {
-        e.preventDefault();
-        activeCategory = "all";
-        searchQuery = "";
-        document.getElementById("searchInput").value = "";
-        updateCategoryActive("all");
-        renderTools();
-        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
-        showToast("Complete toolkit — all tools available ✨");
-      });
-    }
-    // Logo home link
-    const logoLink = document.querySelector('.logo');
-    if (logoLink) {
-      logoLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        activeCategory = "all";
-        searchQuery = "";
-        document.getElementById("searchInput").value = "";
-        updateCategoryActive("all");
-        renderTools();
-        showToast("Welcome to ToolForge dashboard");
-      });
-    }
-  }
-
-  // optional: add dynamic demo link guard for "Pro Plans" & external links
-  function enhanceExternalLinks() {
-    const proBtn = document.querySelector('.btn-outline-light');
-    if (proBtn) {
-      proBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast("🌟 Upgrade to Pro: advanced batch processing & priority support (demo)");
-      });
-    }
-    const footerLinks = document.querySelectorAll('.footer a');
-    footerLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast(`ℹ️ ${link.innerText} — coming soon. Demo navigation.`);
-      });
+    // file selection trigger
+    uploadZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+      fileInput.value = '';
     });
-  }
+    // drag & drop
+    uploadZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadZone.style.background = '#f1f9ff';
+    });
+    uploadZone.addEventListener('dragleave', () => {
+      uploadZone.style.background = '#fefefe';
+    });
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.style.background = '#fefefe';
+      const dt = e.dataTransfer;
+      if (dt.files && dt.files[0]) handleFile(dt.files[0]);
+    });
 
-  function init() {
-    renderTools();
-    bindCategoryEvents();
-    bindSearchEvents();
-    bindNavHyperlinks();
-    enhanceExternalLinks();
-  }
+    // initial update label
+    updateQualityLabel(qualitySlider.value);
 
-  init();
+    // clean object URLs on page exit
+    window.addEventListener('beforeunload', () => {
+      if (originalImageURL) URL.revokeObjectURL(originalImageURL);
+      if (currentCompressedURL) URL.revokeObjectURL(currentCompressedURL);
+    });
+
+    // -------------------------------
+    // GOOGLE ADSENSE DYNAMIC INSERTION with Ad Unit ID (monetization)
+    // provide easy integration: user inputs AdSense client ID or full script snippet?
+    // According to Google AdSense best practice: we can insert <ins> tag or script async.
+    // We'll implement a function that injects standard AdSense code using given publisher id (ca-pub-xxx)
+    // and optional ad slot. For simplicity, we will create an ad unit responsive.
+    // The container #dynamicAdHolder will be cleared and replaced with AdSense code.
+    function insertAdSense(publisherId, adSlotId = '') {
+      const adContainer = document.getElementById('dynamicAdHolder');
+      if (!adContainer) return;
+      // Clear previous AdSense content;
+      adContainer.innerHTML = '';
+      // Build script tag for adsbygoogle
+      if (!publisherId || publisherId.trim() === '') {
+        adContainer.innerHTML = `<div style="font-size:12px; color:#a94442; background:#f9e6e6; padding:8px; border-radius:12px;">⚠️ Valid AdSense Publisher ID required (ca-pub-...).</div>`;
+        return;
+      }
+      // Create ins element for responsive unit
+      const insElem = document.createElement('ins');
+      insElem.className = 'adsbygoogle';
+      insElem.style.display = 'block';
+      insElem.setAttribute('data-ad-client', publisherId.trim());
+      if (adSlotId && adSlotId.trim() !== '') {
+        insElem.setAttribute('data-ad-slot', adSlotId.trim());
+      } else {
+        // use a placeholder slot (user must replace or we provide default some generic)
+        insElem.setAttribute('data-ad-slot', '1234567890');  // sample slot (replace via optional field)
+      }
+      insElem.setAttribute('data-ad-format', 'auto');
+      insElem.setAttribute('data-full-width-responsive', 'true');
+      adContainer.appendChild(insElem);
+      
+      // Load adsbygoogle script if not already loaded safely
+      if (typeof window.adsbygoogle === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.onload = () => {
+          try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch(e) { console.warn(e); }
+        };
+        document.head.appendChild(script);
+      } else {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch(e) { console.warn(e); }
+      }
+      const noteDiv = document.getElementById('adDebugNote');
+      if(noteDiv) noteDiv.innerHTML = `✅ AdSense unit applied: ${publisherId}`;
+    }
+
+    // optionally user can also insert optional ad slot id (advanced)
+    const applyAdBtn = document.getElementById('applyAdBtn');
+    const adsenseIdInput = document.getElementById('adsenseIdInput');
+    applyAdBtn.addEventListener('click', () => {
+      let pubId = adsenseIdInput.value.trim();
+      if (pubId && !pubId.startsWith('ca-pub-')) {
+        alert('Publisher ID should start with "ca-pub-". Example: ca-pub-1234567890123456');
+        return;
+      }
+      if (pubId === '') {
+        document.getElementById('dynamicAdHolder').innerHTML = `<div style="padding:16px; background:#ffe6e6; border-radius:12px;">⚠️ No Publisher ID provided. Ad not loaded.</div>`;
+        if(document.getElementById('adDebugNote')) document.getElementById('adDebugNote').innerHTML = '';
+        return;
+      }
+      insertAdSense(pubId, '');  // you can extend optional slot field, but we keep simple
+    });
+    
+    // small demo hint: optional prefill demo id? Not for production but to show concept
+    const demoHint = document.createElement('div');
+    // no sensitive default; but show guide
+    const noteSpan = document.getElementById('adDebugNote');
+    if(noteSpan) noteSpan.innerHTML = 'Enter your AdSense pub ID (ca-pub-...) and click Apply.';
+  })();
 </script>
 </body>
 </html>
