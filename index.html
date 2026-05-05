@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PixelForge Tools | Image & PDF Suite</title>
-  <!-- Google Fonts + Simple Icons (Font Awesome CDN) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <title>ToolForge | Ultimate Image & PDF Toolkit — Smart Links</title>
+  <!-- Google Fonts + Font Awesome 6 (free) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -18,1238 +16,607 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      background: #f8fafd;
       color: #0f172a;
-      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 24px;
     }
 
-    /* modern glassmorphism header */
-    .header {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 0.9rem 0;
-    }
-
-    .nav {
+    /* modern glassmorphism touches */
+    .navbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      padding: 20px 0;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #1e293b, #2d3a4b);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .logo i {
       background: none;
-      color: #3b82f6;
-      font-size: 2rem;
-      background-clip: unset;
-      -webkit-background-clip: unset;
       color: #2563eb;
+      font-size: 2rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 32px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
-      color: #1e293b;
+      color: #334155;
       transition: 0.2s;
     }
 
     .nav-links a:hover {
-      color: #3b82f6;
+      color: #2563eb;
     }
 
     .btn-outline-light {
-      background: transparent;
+      background: white;
       border: 1px solid #cbd5e1;
-      padding: 0.5rem 1.2rem;
+      padding: 8px 20px;
       border-radius: 40px;
       font-weight: 600;
-      transition: 0.2s;
+      transition: all 0.2s;
     }
 
     .btn-outline-light:hover {
-      background: #ffffff;
-      border-color: #3b82f6;
-      color: #3b82f6;
+      border-color: #2563eb;
+      background: #eff6ff;
     }
 
-    /* Hero section */
+    /* hero section */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 60px 0 40px 0;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 800;
-      background: linear-gradient(to right, #0f2b3d, #1e4a76, #2563eb);
-      -webkit-background-clip: text;
+      background: linear-gradient(to right, #0f2b5e, #2563eb, #3b82f6);
       background-clip: text;
+      -webkit-background-clip: text;
       color: transparent;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #334155;
-      max-width: 700px;
-      margin: 0 auto 2rem;
+      color: #475569;
+      max-width: 680px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
     }
 
-    .search-bar {
-      max-width: 560px;
-      margin: 0 auto 2rem;
+    .search-tools {
+      max-width: 540px;
+      margin: 0 auto;
+      display: flex;
       background: white;
       border-radius: 60px;
-      display: flex;
-      align-items: center;
-      padding: 0.2rem 0.2rem 0.2rem 1.5rem;
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       border: 1px solid #e2e8f0;
-    }
-
-    .search-bar i {
-      color: #94a3b8;
-    }
-
-    .search-bar input {
-      flex: 1;
-      border: none;
-      padding: 0.9rem 0.8rem;
-      font-size: 1rem;
-      background: transparent;
-      outline: none;
-      font-weight: 400;
-    }
-
-    .search-bar button {
-      background: #2563eb;
-      border: none;
-      padding: 0.7rem 1.6rem;
-      border-radius: 40px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
+      overflow: hidden;
       transition: 0.2s;
     }
 
-    .search-bar button:hover {
+    .search-tools input {
+      flex: 1;
+      padding: 16px 24px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .search-tools button {
+      background: #2563eb;
+      border: none;
+      padding: 0 28px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .search-tools button:hover {
       background: #1d4ed8;
-      transform: scale(0.97);
     }
 
-    /* stats quick info */
-    .stats {
+    /* category badges */
+    .category-badge {
       display: flex;
-      justify-content: center;
-      gap: 2.5rem;
       flex-wrap: wrap;
-      margin-top: 2rem;
+      justify-content: center;
+      gap: 12px;
+      margin: 48px 0 32px;
     }
 
-    .stat-item {
-      background: rgba(255,255,240,0.5);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1rem;
-      border-radius: 60px;
+    .cat-btn {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 8px 20px;
+      border-radius: 40px;
       font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
       font-size: 0.9rem;
-      color: #2c3e66;
     }
 
-    /* category titles */
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 3rem 0 1.5rem 0;
-      position: relative;
-      display: inline-block;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60%;
-      height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #a5f3fc);
-      border-radius: 4px;
+    .cat-btn.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
+    /* tools grid - cards with hyperlinks */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin: 2rem 0 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 30px;
+      margin: 40px 0 60px;
     }
 
-    /* tool card modern design */
     .tool-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(2px);
+      background: white;
       border-radius: 28px;
-      padding: 1.5rem 1.2rem;
+      overflow: hidden;
       transition: all 0.25s ease;
-      border: 1px solid rgba(203, 213, 225, 0.5);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
-      cursor: pointer;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2ff;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 0.8rem;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transform: translateY(0);
     }
 
     .tool-card:hover {
       transform: translateY(-6px);
-      border-color: #bfdbfe;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
-      background: white;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+      border-color: #b9d0f8;
     }
 
     .tool-icon {
-      font-size: 2.4rem;
-      background: #eef2ff;
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      color: #2563eb;
-    }
-
-    .tool-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .tool-card p {
-      color: #475569;
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    .badge {
-      background: #e2e8f0;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-top: 4px;
-    }
-
-    .footer {
-      margin-top: 5rem;
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 2rem 0;
-      text-align: center;
-      border-radius: 2rem 2rem 0 0;
-    }
-
-    .footer a {
-      color: #94a3b8;
-      text-decoration: none;
-      margin: 0 0.8rem;
-    }
-
-    @media (max-width: 760px) {
-      .hero h1 {
-        font-size: 2.3rem;
-      }
-      .nav-links {
-        gap: 1rem;
-      }
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* notification toast */
-    .toast-msg {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1e293b;
-      color: white;
-      padding: 0.75rem 1.6rem;
-      border-radius: 60px;
-      font-size: 0.9rem;
-      z-index: 999;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      pointer-events: none;
-      transition: 0.2s;
-      opacity: 0;
-    }
-
-    .toast-msg.show {
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
-
-<header class="header">
-  <div class="container">
-    <div class="nav">
-      <div class="logo">
-        <i class="fas fa-magic"></i> 
-        <span>PixelForge<span style="color:#2563eb;"> Tools</span></span>
-      </div>
-      <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Image Tools</a>
-        <a href="#">PDF Tools</a>
-        <a href="#" class="btn-outline-light"><i class="fas fa-star"></i> Pro</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="container">
-    <!-- Hero Section -->
-    <div class="hero">
-      <h1>Image & PDF toolkit <br> that just works.</h1>
-      <p>Compress, convert, edit, merge — over 35+ smart tools for creators, students, and pros. All in one place.</p>
-      <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" id="toolSearch" placeholder="Search tools... e.g., 'compress PDF', 'resize image'">
-        <button id="searchBtn"><i class="fas fa-arrow-right"></i> Find</button>
-      </div>
-      <div class="stats">
-        <span class="stat-item"><i class="fas fa-image"></i> 18 Image Tools</span>
-        <span class="stat-item"><i class="fas fa-file-pdf"></i> 12 PDF Tools</span>
-        <span class="stat-item"><i class="fas fa-cloud-upload-alt"></i> 100% Free</span>
-        <span class="stat-item"><i class="fas fa-bolt"></i> Instant Processing</span>
-      </div>
-    </div>
-
-    <!-- Image Tools Section -->
-    <div>
-      <div class="section-title"><i class="fas fa-camera"></i> Image Tools</div>
-      <div class="tools-grid" id="imageToolsGrid">
-        <!-- dynamic javascript will populate but also hardcoded fallback, but for reliable UI we generate via js -->
-      </div>
-    </div>
-
-    <!-- PDF Tools Section -->
-    <div>
-      <div class="section-title"><i class="fas fa-file-pdf"></i> PDF Power Suite</div>
-      <div class="tools-grid" id="pdfToolsGrid"></div>
-    </div>
-
-    <!-- Extra Row: more popular utilities-->
-    <div style="margin: 2.5rem 0 1rem; background: linear-gradient(120deg, #eef2ff, #ffffff); border-radius: 2rem; padding: 2rem 1.5rem;">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-        <div>
-          <h3 style="font-size: 1.5rem;">⚡ Batch processing & smart conversion</h3>
-          <p style="color:#334155;">No upload limits, private & fast — all tools run directly in your browser (client-side).</p>
-        </div>
-        <div>
-          <span style="background:#2563eb10; padding: 0.6rem 1.2rem; border-radius: 40px;"><i class="fas fa-shield-alt"></i>  Privacy first</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <p><i class="fas fa-tools"></i> PixelForge Tools — Designed for efficiency</p>
-    <div style="margin-top: 1rem;">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#">Contact</a>
-      <a href="#">API</a>
-    </div>
-    <p style="margin-top: 1.5rem; font-size: 0.8rem;">© 2025 PixelForge — All tools are demo-ready, interactive placeholders. Real logic ready to integrate.</p>
-  </div>
-</footer>
-
-<!-- Toast notification -->
-<div id="toastMsg" class="toast-msg"><i class="fas fa-info-circle"></i> Tool demo: ready for integration</div>
-
-<script>
-  // ------------------------------
-  // Tool dataset (image + PDF)
-  // ------------------------------
-  const imageTools = [
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PixelForge Tools | Ultimate Image & PDF Suite</title>
-  <!-- Google Fonts + Font Awesome 6 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
-      color: #0f172a;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* modern glassmorphism header */
-    .header {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 0.9rem 0;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #1e293b, #2d3a4b);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .logo i {
-      background: none;
-      color: #3b82f6;
-      font-size: 2rem;
-      background-clip: unset;
-      -webkit-background-clip: unset;
-      color: #2563eb;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #1e293b;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #3b82f6;
-    }
-
-    .btn-outline-light {
-      background: transparent;
-      border: 1px solid #cbd5e1;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .btn-outline-light:hover {
-      background: #ffffff;
-      border-color: #3b82f6;
-      color: #3b82f6;
-    }
-
-    /* Hero section */
-    .hero {
-      padding: 4rem 0 3rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      background: linear-gradient(to right, #0f2b3d, #1e4a76, #2563eb);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #334155;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .search-bar {
-      max-width: 560px;
-      margin: 0 auto 2rem;
-      background: white;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      padding: 0.2rem 0.2rem 0.2rem 1.5rem;
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e2e8f0;
-    }
-
-    .search-bar i {
-      color: #94a3b8;
-    }
-
-    .search-bar input {
-      flex: 1;
-      border: none;
-      padding: 0.9rem 0.8rem;
-      font-size: 1rem;
-      background: transparent;
-      outline: none;
-      font-weight: 400;
-    }
-
-    .search-bar button {
-      background: #2563eb;
-      border: none;
-      padding: 0.7rem 1.6rem;
-      border-radius: 40px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .search-bar button:hover {
-      background: #1d4ed8;
-      transform: scale(0.97);
-    }
-
-    /* stats quick info */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .stat-item {
-      background: rgba(255,255,240,0.5);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1rem;
-      border-radius: 60px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #2c3e66;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .stat-item:hover {
-      background: #e2e8f0;
-      transform: translateY(-2px);
-    }
-
-    /* category titles */
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 3rem 0 1.5rem 0;
-      position: relative;
-      display: inline-block;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60%;
-      height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #a5f3fc);
-      border-radius: 4px;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.8rem;
-      margin: 2rem 0 2rem;
-    }
-
-    /* Hyperlink card styling - complete clickable area */
-    .tool-card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: all 0.25s ease;
-    }
-
-    .tool-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(2px);
-      border-radius: 28px;
-      padding: 1.5rem 1.2rem;
-      transition: all 0.25s ease;
-      border: 1px solid rgba(203, 213, 225, 0.5);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.8rem;
-      height: 100%;
-    }
-
-    .tool-card-link:hover .tool-card {
-      transform: translateY(-6px);
-      border-color: #bfdbfe;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
-      background: white;
-    }
-
-    .tool-icon {
-      font-size: 2.4rem;
-      background: #eef2ff;
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      color: #2563eb;
-    }
-
-    .tool-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .tool-card p {
-      color: #475569;
-      font-size: 0.9rem;
-      line-height: 1.45;
-      margin: 0;
-    }
-
-    .badge {
-      background: #e2e8f0;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-top: 4px;
-      display: inline-block;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      align-items: center;
-      margin-top: 8px;
-    }
-
-    .external-icon {
-      color: #94a3b8;
-      font-size: 0.75rem;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .tool-card-link:hover .external-icon {
-      opacity: 1;
-      color: #3b82f6;
-    }
-
-    .footer {
-      margin-top: 5rem;
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 2rem 0;
-      text-align: center;
-      border-radius: 2rem 2rem 0 0;
-    }
-
-    .footer a {
-      color: #94a3b8;
-      text-decoration: none;
-      margin: 0 0.8rem;
-      transition: 0.2s;
-    }
-
-    .footer a:hover {
-      color: white;
-    }
-
-    @media (max-width: 760px) {
-      .hero h1 {
-        font-size: 2.3rem;
-      }
-      .nav-links {
-        gap: 1rem;
-      }
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* notification toast */
-    .toast-msg {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1e293b;
-      color: white;
-      padding: 0.75rem 1.6rem;
-      border-radius: 60px;
-      font-size: 0.9rem;
-      z-index: 999;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      pointer-events: none;
-      transition: 0.2s;
-      opacity: 0;
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    @media (max-width: 560px) {
-      .toast-msg { white-space: normal; max-width: 85vw; text-align: center; }
-    }
-
-    .toast-msg.show {
-      opacity: 1;
-    }
-
-    /* empty state */
-    .empty-state {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 3rem;
+      font-size: 3rem;
       background: #f1f5f9;
-      border-radius: 2rem;
-      color: #475569;
+      padding: 32px 0;
+      text-align: center;
+      color: #1e40af;
+      border-bottom: 1px solid #eef2ff;
+    }
+
+    .tool-info {
+      padding: 24px 20px 28px;
+      flex: 1;
+    }
+
+    .tool-info h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .tool-info p {
+      color: #5b6e8c;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .tool-tag {
+      display: inline-block;
+      background: #eef2ff;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #2563eb;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-pdf {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-img {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    /* footer */
+    .footer {
+      background: white;
+      border-top: 1px solid #eef2ff;
+      padding: 40px 0;
+      margin-top: 40px;
+      text-align: center;
+      color: #5b6e8c;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f8fafc;
+      border-radius: 48px;
+      margin: 30px 0;
+    }
+
+    /* responsiveness */
+    @media (max-width: 720px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .navbar {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 20px;
+        justify-content: center;
+      }
+      .tools-grid {
+        gap: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="nav">
-      <div class="logo" id="resetLogoBtn">
-        <i class="fas fa-magic"></i> 
-        <span>PixelForge<span style="color:#2563eb;"> Tools</span></span>
-      </div>
-      <div class="nav-links">
-        <a href="#" id="homeNavBtn">Home</a>
-        <a href="#" id="imageToolsNavBtn">Image Tools</a>
-        <a href="#" id="pdfToolsNavBtn">PDF Tools</a>
-        <a href="#" class="btn-outline-light" id="proBtn"><i class="fas fa-star"></i> Pro</a>
-      </div>
+<div class="container">
+  <!-- Navigation with hyperlinks -->
+  <div class="navbar">
+    <a href="#" class="logo" style="text-decoration: none;">
+      <i class="fas fa-toolbox"></i>
+      <span>ToolForge</span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#image-tools" id="navImageLink">Image Tools</a>
+      <a href="#pdf-tools" id="navPdfLink">PDF Tools</a>
+      <a href="#all-tools" id="navAllLink">All Tools</a>
+      <a href="#pro" class="btn-outline-light"><i class="fas fa-crown"></i> Pro Plans</a>
     </div>
   </div>
-</header>
 
-<main>
-  <div class="container">
-    <!-- Hero Section -->
-    <div class="hero">
-      <h1>Image & PDF toolkit <br> that just works.</h1>
-      <p>Compress, convert, edit, merge — over 35+ smart tools for creators, students, and pros. All in one place.</p>
-      <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" id="toolSearch" placeholder="Search tools... e.g., 'compress PDF', 'resize image'">
-        <button id="searchBtn"><i class="fas fa-arrow-right"></i> Find</button>
-      </div>
-      <div class="stats">
-        <span class="stat-item" data-info="18 Image Tools available: compress, resize, background remover, watermark and more."><i class="fas fa-image"></i> 18 Image Tools</span>
-        <span class="stat-item" data-info="12 PDF Tools: merge, split, compress, unlock, rotate, and more."><i class="fas fa-file-pdf"></i> 12 PDF Tools</span>
-        <span class="stat-item" data-info="All tools are 100% free with no hidden costs!"><i class="fas fa-cloud-upload-alt"></i> 100% Free</span>
-        <span class="stat-item" data-info="Client-side processing ensures privacy & lightning speed."><i class="fas fa-bolt"></i> Instant Processing</span>
-      </div>
-    </div>
-
-    <!-- Image Tools Section -->
-    <div>
-      <div class="section-title" id="imageToolsTitle"><i class="fas fa-camera"></i> Image Tools</div>
-      <div class="tools-grid" id="imageToolsGrid"></div>
-    </div>
-
-    <!-- PDF Tools Section -->
-    <div>
-      <div class="section-title" id="pdfToolsTitle"><i class="fas fa-file-pdf"></i> PDF Power Suite</div>
-      <div class="tools-grid" id="pdfToolsGrid"></div>
-    </div>
-
-    <!-- Extra Row: feature highlight -->
-    <div style="margin: 2.5rem 0 1rem; background: linear-gradient(120deg, #eef2ff, #ffffff); border-radius: 2rem; padding: 2rem 1.5rem;">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-        <div>
-          <h3 style="font-size: 1.5rem;">⚡ Batch processing & smart conversion</h3>
-          <p style="color:#334155;">No upload limits, private & fast — all tools run directly in your browser (client-side).</p>
-        </div>
-        <div>
-          <span style="background:#2563eb10; padding: 0.6rem 1.2rem; border-radius: 40px;"><i class="fas fa-shield-alt"></i>  Privacy first</span>
-        </div>
-      </div>
+  <!-- Hero + search (anchor target) -->
+  <div class="hero" id="home">
+    <h1>Image & PDF Toolkit<br>⚡ at your fingertips</h1>
+    <p>Compress, convert, edit, merge — over 35+ professional tools for images and PDFs. Lightning fast, secure, and free.</p>
+    <div class="search-tools">
+      <input type="text" id="searchInput" placeholder="Search tools... e.g., 'compress PDF' or 'resize image'">
+      <button id="searchBtn"><i class="fas fa-search"></i> Find</button>
     </div>
   </div>
-</main>
 
-<footer class="footer">
-  <div class="container">
-    <p><i class="fas fa-tools"></i> PixelForge Tools — Designed for efficiency</p>
-    <div style="margin-top: 1rem;">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#">Contact</a>
-      <a href="#">API</a>
-    </div>
-    <p style="margin-top: 1.5rem; font-size: 0.8rem;">© 2025 PixelForge — Each tool card is an active hyperlink to its dedicated tool page.</p>
+  <!-- Category filters + anchor sections -->
+  <div class="category-badge" id="categoryFilter">
+    <button data-cat="all" class="cat-btn active">✨ All Tools</button>
+    <button data-cat="image" class="cat-btn"><i class="fas fa-image"></i> Image Tools</button>
+    <button data-cat="pdf" class="cat-btn"><i class="fas fa-file-pdf"></i> PDF Tools</button>
   </div>
-</footer>
 
-<div id="toastMsg" class="toast-msg"><i class="fas fa-link"></i> Opening tool page...</div>
+  <!-- Tools grid dynamic injection with hyperlinks (each card is a functional link) -->
+  <div id="toolsGridContainer" class="tools-grid"></div>
+</div>
+
+<!-- Footer with hyperlinks -->
+<div class="footer">
+  <div class="container">
+    <p><i class="fas fa-shield-alt"></i> ToolForge — <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a> | Secure client-side tools</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;">© 2025 — <a href="#">Image Compressor</a>, <a href="#">PDF Merger</a>, <a href="#">Watermark</a>, <a href="#">OCR & more</a></p>
+  </div>
+</div>
 
 <script>
-  // ----------------------------------------------
-  // TOOL DATASETS WITH HYPERLINKS (complete URLs)
-  // Each tool now has a dedicated 'url' property.
-  // ----------------------------------------------
-  
-  // Helper to generate slug from tool name (for clean URLs)
-  function generateSlug(name) {
-    return name.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '-');
+  // ---------- TOOL DATABASE with rich hyperlinks for individual tools (simulate tool pages) ----------
+  const toolsDatabase = [
+    { id: 1, name: "Image Resizer", description: "Instantly resize any image dimension, maintain quality.", category: "image", icon: "fas fa-expand-alt", badge: "Image Tool", link: "/tools/image-resizer" },
+    { id: 2, name: "Compress JPEG/PNG", description: "Reduce image file size without losing clarity.", category: "image", icon: "fas fa-compress-alt", badge: "Image Tool", link: "/tools/compress-image" },
+    { id: 3, name: "Crop & Rotate", description: "Crop, flip, rotate images in real-time.", category: "image", icon: "fas fa-crop-alt", badge: "Image Tool", link: "/tools/crop-rotate" },
+    { id: 4, name: "Image to WebP", description: "Convert images to modern WebP format.", category: "image", icon: "fas fa-file-image", badge: "Image Tool", link: "/tools/to-webp" },
+    { id: 5, name: "Add Watermark", description: "Protect your photos with custom text/logo watermark.", category: "image", icon: "fas fa-water", badge: "Image Tool", link: "/tools/watermark" },
+    { id: 6, name: "Background Remover", description: "AI-based background eraser (smart cutout).", category: "image", icon: "fas fa-magic", badge: "Image Tool", link: "/tools/bg-remover" },
+    { id: 7, name: "Image to PDF", description: "Combine multiple images into a single PDF.", category: "image", icon: "fas fa-file-pdf", badge: "Hybrid Tool", link: "/tools/image-to-pdf" },
+    { id: 8, name: "PDF Merger", description: "Join two or more PDFs into one document.", category: "pdf", icon: "fas fa-object-group", badge: "PDF Tool", link: "/tools/pdf-merger" },
+    { id: 9, name: "PDF Compressor", description: "Shrink PDF size while keeping quality.", category: "pdf", icon: "fas fa-file-archive", badge: "PDF Tool", link: "/tools/pdf-compress" },
+    { id: 10, name: "PDF to JPG", description: "Extract pages as high-quality JPG images.", category: "pdf", icon: "fas fa-file-export", badge: "PDF Tool", link: "/tools/pdf-to-jpg" },
+    { id: 11, name: "Split PDF", description: "Extract specific pages from PDF documents.", category: "pdf", icon: "fas fa-cut", badge: "PDF Tool", link: "/tools/split-pdf" },
+    { id: 12, name: "Protect PDF (Lock)", description: "Add password protection to confidential PDFs.", category: "pdf", icon: "fas fa-lock", badge: "PDF Tool", link: "/tools/lock-pdf" },
+    { id: 13, name: "Rotate PDF", description: "Rotate pages permanently in any PDF.", category: "pdf", icon: "fas fa-sync-alt", badge: "PDF Tool", link: "/tools/rotate-pdf" },
+    { id: 14, name: "Image Color Adjust", description: "Brightness, contrast, saturation, filters.", category: "image", icon: "fas fa-sliders-h", badge: "Image Tool", link: "/tools/color-adjust" },
+    { id: 15, name: "PDF Page Remover", description: "Delete unwanted pages from PDF file.", category: "pdf", icon: "fas fa-trash-alt", badge: "PDF Tool", link: "/tools/pdf-page-remover" },
+    { id: 16, name: "PNG to JPG", description: "Convert PNG images to JPG format.", category: "image", icon: "fas fa-exchange-alt", badge: "Image Tool", link: "/tools/png-to-jpg" },
+    { id: 17, name: "Extract PDF Images", description: "Pull all images from a PDF document.", category: "pdf", icon: "fas fa-images", badge: "PDF Tool", link: "/tools/pdf-extract-images" },
+    { id: 18, name: "Photo Editor Lite", description: "Filters, text overlay, stickers.", category: "image", icon: "fas fa-palette", badge: "Image Tool", link: "/tools/photo-editor" },
+    { id: 19, name: "OCR Image to Text", description: "Extract text from scanned images/PDFs (OCR).", category: "image", icon: "fas fa-microphone-alt", badge: "Advanced Tool", link: "/tools/ocr" },
+    { id: 20, name: "PDF Watermark", description: "Add text/image watermark to PDF pages.", category: "pdf", icon: "fas fa-copyright", badge: "PDF Tool", link: "/tools/pdf-watermark" },
+    { id: 21, name: "WebP to PNG", description: "Convert WebP images back to PNG.", category: "image", icon: "fas fa-file-code", badge: "Image Tool", link: "/tools/webp-to-png" },
+    { id: 22, name: "Animated GIF to MP4", description: "Turn GIFs into video clips quickly.", category: "image", icon: "fas fa-video", badge: "Image Tool", link: "/tools/gif-to-mp4" }
+  ];
+
+  let activeCategory = "all";
+  let searchQuery = "";
+
+  function filterTools() {
+    return toolsDatabase.filter(tool => {
+      const matchesCategory = activeCategory === "all" || tool.category === activeCategory;
+      const matchesSearch = searchQuery === "" || tool.name.toLowerCase().includes(searchQuery.toLowerCase()) || tool.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
   }
 
-  // Image Tools dataset (exactly as requested with hyperlinks)
-  const imageTools = [
-    { name: "Image Compressor", icon: "fas fa-compress-alt", desc: "Reduce size without losing quality. JPG, PNG, WebP.", tag: "compress", url: "img-comprs.html" },
-    { name: "Resize Image", icon: "fas fa-expand-alt", desc: "Scale to exact dimensions, social media ready.", tag: "resize", url: "/tools/resize-image" },
-    { name: "Crop Image", icon: "fas fa-crop-alt", desc: "Crop freely, rotate & flip instantly.", tag: "crop", url: "/tools/crop-image" },
-    { name: "Convert to JPG", icon: "fas fa-file-image", desc: "PNG, WebP, BMP → high-quality JPG.", tag: "convert", url: "/tools/convert-to-jpg" },
-    { name: "Convert to PNG", icon: "fas fa-image", desc: "Transparent backgrounds, perfect for logos.", tag: "png", url: "/tools/convert-to-png" },
-    { name: "Background Remover", icon: "fas fa-eraser", desc: "AI remove background with one click.", tag: "bg", popular: true, url: "/tools/background-remover" },
-    { name: "Watermark Image", icon: "fas fa-copyright", desc: "Add text or logo watermark, adjust opacity.", tag: "watermark", url: "/tools/watermark-image" },
-    { name: "Image to WebP", icon: "fab fa-chrome", desc: "Modern format for web performance.", tag: "webp", url: "/tools/image-to-webp" },
-    { name: "Flip & Rotate", icon: "fas fa-undo-alt", desc: "Mirror, rotate 90°, flip horizontal/vertical.", tag: "rotate", url: "/tools/flip-rotate" }
-  ];
+  function getBadgeClass(tool) {
+    if (tool.category === "pdf") return "badge-pdf";
+    return "badge-img";
+  }
 
-  // PDF Tools also have hyperlinks for completeness
-  const pdfTools = [
-    { name: "PDF Compressor", icon: "fas fa-file-archive", desc: "Shrink PDF size while preserving quality.", tag: "compress", url: "/tools/pdf-compressor" },
-    { name: "Merge PDF", icon: "fas fa-object-group", desc: "Combine multiple PDFs into one document.", tag: "merge", url: "/tools/merge-pdf" },
-    { name: "Split PDF", icon: "fas fa-cut", desc: "Extract pages, split by range.", tag: "split", url: "/tools/split-pdf" },
-    { name: "PDF to JPG", icon: "fas fa-file-export", desc: "Convert each page to high-res image.", tag: "convert", url: "/tools/pdf-to-jpg" },
-    { name: "JPG to PDF", icon: "fas fa-file-import", desc: "Multiple images → single PDF.", tag: "create", url: "/tools/jpg-to-pdf" },
-    { name: "Rotate PDF", icon: "fas fa-sync-alt", desc: "Fix page orientation permanently.", tag: "rotate", url: "/tools/rotate-pdf" },
-    { name: "PDF Unlock", icon: "fas fa-lock-open", desc: "Remove password protection (if you own it).", tag: "security", url: "/tools/pdf-unlock" },
-    { name: "Add Page Numbers", icon: "fas fa-hashtag", desc: "Insert page numbers, custom formats.", tag: "edit", url: "/tools/add-page-numbers" },
-    { name: "Extract Pages", icon: "fas fa-dice-d6", desc: "Save selected pages as new PDF.", tag: "extract", url: "/tools/extract-pages" }
-  ];
+  // render tools with actual hyperlinks (anchor tags) — each card is a fully clickable link
+  function renderTools() {
+    const container = document.getElementById("toolsGridContainer");
+    const filtered = filterTools();
 
-  // Helper: render tools as clickable hyperlink cards
-  function renderTools(toolsArray, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    container.innerHTML = '';
-    
-    if (toolsArray.length === 0) {
-      const emptyDiv = document.createElement('div');
-      emptyDiv.className = 'empty-state';
-      emptyDiv.innerHTML = '<i class="fas fa-search"></i> No tools match your search. Try another keyword.';
-      container.appendChild(emptyDiv);
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-search" style="font-size: 3rem; color: #94a3b8;"></i>
+          <h3 style="margin-top: 20px;">No tools match</h3>
+          <p>Try different keywords or clear filters ✨</p>
+          <button id="resetFilterBtn" style="margin-top: 15px; background: #2563eb; border: none; padding: 8px 24px; border-radius: 40px; color: white; font-weight: 500; cursor: pointer;">Show All Tools</button>
+        </div>
+      `;
+      const resetBtn = document.getElementById("resetFilterBtn");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          activeCategory = "all";
+          searchQuery = "";
+          document.getElementById("searchInput").value = "";
+          updateCategoryActive("all");
+          renderTools();
+          // also scroll to grid
+          document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+        });
+      }
       return;
     }
 
-    toolsArray.forEach(tool => {
-      // Create anchor element (hyperlink)
-      const link = document.createElement('a');
-      link.href = tool.url;
-      link.className = 'tool-card-link';
-      // Optional: add smooth toast before navigation (does not block)
-      link.addEventListener('click', (e) => {
-        // Show friendly notification that we are navigating to the tool page
-        showToast(`🔗 Opening ${tool.name} — complete tool interface`);
-        // Allow default navigation (real hyperlink behavior)
-        // No preventDefault so the browser navigates to the tool page.
-      });
-      
-      // Build card inner structure
-      const card = document.createElement('div');
-      card.className = 'tool-card';
-      
-      let badgeHtml = '';
-      if (tool.popular) {
-        badgeHtml = '<span class="badge"><i class="fas fa-fire"></i> Popular</span>';
-      }
-      
-      card.innerHTML = `
-        <div class="tool-icon"><i class="${tool.icon}"></i></div>
-        <h3>${tool.name}</h3>
-        <p>${tool.desc}</p>
-        <div class="card-footer">
-          <span class="badge">${tool.tag ? tool.tag.toUpperCase() : 'TOOL'}</span>
-          ${badgeHtml}
-          <i class="fas fa-external-link-alt external-icon"></i>
+    // Build clickable cards — each wrapped in <a> with hyperlink from database
+    // adding target="_self" to simulate internal routing, but href uses meaningful links.
+    // real deployment would point to actual tool pages, but we simulate navigation with a toast + console.
+    // For better UX, each link will show an interactive preview but also preserve href.
+    container.innerHTML = filtered.map(tool => `
+      <a href="${tool.link}" class="tool-card" data-tool-id="${tool.id}" data-link="${tool.link}">
+        <div class="tool-icon">
+          <i class="${tool.icon}"></i>
         </div>
-      `;
-      link.appendChild(card);
-      container.appendChild(link);
-    });
-  }
-
-  // Initial render
-  renderTools(imageTools, 'imageToolsGrid');
-  renderTools(pdfTools, 'pdfToolsGrid');
-
-  // Search + Filter logic (both sections)
-  const searchInput = document.getElementById('toolSearch');
-  const searchButton = document.getElementById('searchBtn');
-
-  function filterAllTools(searchTerm) {
-    const term = searchTerm.trim().toLowerCase();
-    const filteredImages = imageTools.filter(tool => 
-      tool.name.toLowerCase().includes(term) || 
-      (tool.tag && tool.tag.toLowerCase().includes(term)) ||
-      tool.desc.toLowerCase().includes(term)
-    );
-    const filteredPdfs = pdfTools.filter(tool => 
-      tool.name.toLowerCase().includes(term) || 
-      (tool.tag && tool.tag.toLowerCase().includes(term)) ||
-      tool.desc.toLowerCase().includes(term)
-    );
-    renderTools(filteredImages, 'imageToolsGrid');
-    renderTools(filteredPdfs, 'pdfToolsGrid');
-  }
-
-  function showToast(message) {
-    const toast = document.getElementById('toastMsg');
-    if (!toast) return;
-    toast.innerHTML = `<i class="fas fa-link"></i> ${message}`;
-    toast.classList.add('show');
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2200);
-  }
-
-  // Event listeners for search
-  searchButton.addEventListener('click', () => {
-    filterAllTools(searchInput.value);
-  });
-
-  searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-      filterAllTools(searchInput.value);
-    }
-  });
-
-  searchInput.addEventListener('input', function() {
-    if (this.value === '') {
-      renderTools(imageTools, 'imageToolsGrid');
-      renderTools(pdfTools, 'pdfToolsGrid');
-    } else {
-      filterAllTools(this.value);
-    }
-  });
-
-  // Reset via logo click
-  const resetLogo = document.getElementById('resetLogoBtn');
-  if (resetLogo) {
-    resetLogo.addEventListener('click', () => {
-      searchInput.value = '';
-      renderTools(imageTools, 'imageToolsGrid');
-      renderTools(pdfTools, 'pdfToolsGrid');
-      showToast('🏠 Full toolkit restored');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Navigation interactions
-  const homeBtn = document.getElementById('homeNavBtn');
-  const imageNavBtn = document.getElementById('imageToolsNavBtn');
-  const pdfNavBtn = document.getElementById('pdfToolsNavBtn');
-  const proBtnElem = document.getElementById('proBtn');
-
-  if (homeBtn) {
-    homeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      showToast('🏡 Back to top');
-    });
-  }
-  if (imageNavBtn) {
-    imageNavBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const imageTitle = document.getElementById('imageToolsTitle');
-      if (imageTitle) imageTitle.scrollIntoView({ behavior: 'smooth' });
-      showToast('📸 Scroll to Image Tools');
-    });
-  }
-  if (pdfNavBtn) {
-    pdfNavBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pdfTitle = document.getElementById('pdfToolsTitle');
-      if (pdfTitle) pdfTitle.scrollIntoView({ behavior: 'smooth' });
-      showToast('📄 Scroll to PDF Power Suite');
-    });
-  }
-  if (proBtnElem) {
-    proBtnElem.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast('🚀 Pro version coming soon: advanced batch & cloud storage');
-    });
-  }
-
-  // Stat items interaction
-  const statItems = document.querySelectorAll('.stat-item');
-  statItems.forEach(stat => {
-    stat.addEventListener('click', () => {
-      const info = stat.getAttribute('data-info');
-      if (info) showToast(info);
-      else showToast('Explore all free tools!');
-    });
-  });
-
-  // Additional micro-interaction: any anchor with external link behavior can be tracked
-  console.log('PixelForge Tools: All image & PDF tool cards are active hyperlinks. Each card navigates to dedicated tool page.');
-</script>
-</body>
-</html>
-
-  const pdfTools = [
-    { name: "PDF Compressor", icon: "fas fa-file-archive", desc: "Shrink PDF size while preserving quality.", tag: "compress" },
-    { name: "Merge PDF", icon: "fas fa-object-group", desc: "Combine multiple PDFs into one document.", tag: "merge" },
-    { name: "Split PDF", icon: "fas fa-cut", desc: "Extract pages, split by range.", tag: "split" },
-    { name: "PDF to JPG", icon: "fas fa-file-export", desc: "Convert each page to high-res image.", tag: "convert" },
-    { name: "JPG to PDF", icon: "fas fa-file-import", desc: "Multiple images → single PDF.", tag: "create" },
-    { name: "Rotate PDF", icon: "fas fa-sync-alt", desc: "Fix page orientation permanently.", tag: "rotate" },
-    { name: "PDF Unlock", icon: "fas fa-lock-open", desc: "Remove password protection (if you own it).", tag: "security" },
-    { name: "Add Page Numbers", icon: "fas fa-hashtag", desc: "Insert page numbers, custom formats.", tag: "edit" },
-    { name: "Extract Pages", icon: "fas fa-dice-d6", desc: "Save selected pages as new PDF.", tag: "extract" }
-  ];
-
-  // Helper to render tool cards into grid
-  function renderTools(toolsArray, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    container.innerHTML = '';
-    toolsArray.forEach(tool => {
-      const card = document.createElement('div');
-      card.className = 'tool-card';
-      // custom attribute for search filtering (tool name and tags)
-      card.setAttribute('data-name', tool.name.toLowerCase());
-      card.setAttribute('data-tags', (tool.tag || '').toLowerCase());
-      // optional popular badge
-      let badgeHtml = '';
-      if (tool.popular) {
-        badgeHtml = '<span class="badge"><i class="fas fa-fire"></i> Popular</span>';
-      }
-      card.innerHTML = `
-        <div class="tool-icon"><i class="${tool.icon}"></i></div>
-        <h3>${tool.name}</h3>
-        <p>${tool.desc}</p>
-        <div style="display: flex; justify-content: space-between; width:100%; align-items:center; margin-top: 8px;">
-          <span class="badge">${tool.tag ? tool.tag.toUpperCase() : 'TOOL'}</span>
-          ${badgeHtml}
+        <div class="tool-info">
+          <h3>${tool.name}</h3>
+          <p>${tool.description}</p>
+          <span class="tool-tag ${getBadgeClass(tool)}">
+            <i class="${tool.category === 'pdf' ? 'fas fa-file-pdf' : 'fas fa-image'}"></i> ${tool.badge}
+          </span>
+          <div style="margin-top: 12px; font-size: 0.7rem; color: #2563eb; display: inline-flex; align-items: center; gap: 4px;">
+            <i class="fas fa-external-link-alt"></i> <span>Launch tool →</span>
+          </div>
         </div>
-      `;
-      // click handler to show demo notification
+      </a>
+    `).join('');
+
+    // Intercept clicks to provide a smooth demo + actual hyperlink behavior (both work)
+    // we want hyperlinks to behave normally, but also notify user of navigation (demo friendly)
+    document.querySelectorAll('.tool-card').forEach(card => {
       card.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showToast(`✨ ${tool.name} demo — ready to integrate with backend API.`);
+        // we do NOT prevent default, so the link opens normally.
+        // but we also show a nice toast to indicate the tool is launching.
+        const toolId = card.getAttribute('data-tool-id');
+        const toolItem = toolsDatabase.find(t => t.id == toolId);
+        if (toolItem) {
+          showToast(`🔗 Opening: ${toolItem.name} — redirecting to tool page...`, 1500);
+        } else {
+          showToast(`🚀 Launching professional tool environment.`, 1200);
+        }
+        // small delay to let toast appear before navigation (optional but nice)
+        // but we don't block navigation. For smoothness we allow default.
       });
-      container.appendChild(card);
     });
   }
 
-  // initial render
-  renderTools(imageTools, 'imageToolsGrid');
-  renderTools(pdfTools, 'pdfToolsGrid');
-
-  // search + filtering logic (both sections combined)
-  const searchInput = document.getElementById('toolSearch');
-  const searchButton = document.getElementById('searchBtn');
-
-  function filterAllTools(searchTerm) {
-    const term = searchTerm.trim().toLowerCase();
-    // filter image tools
-    const filteredImages = imageTools.filter(tool => 
-      tool.name.toLowerCase().includes(term) || 
-      (tool.tag && tool.tag.toLowerCase().includes(term)) ||
-      tool.desc.toLowerCase().includes(term)
-    );
-    // filter pdf tools
-    const filteredPdfs = pdfTools.filter(tool => 
-      tool.name.toLowerCase().includes(term) || 
-      (tool.tag && tool.tag.toLowerCase().includes(term)) ||
-      tool.desc.toLowerCase().includes(term)
-    );
-    renderTools(filteredImages, 'imageToolsGrid');
-    renderTools(filteredPdfs, 'pdfToolsGrid');
-    // If no results — optionally show empty state message but remains user-friendly
-    if (filteredImages.length === 0 && filteredPdfs.length === 0) {
-      const imgContainer = document.getElementById('imageToolsGrid');
-      const pdfContainer = document.getElementById('pdfToolsGrid');
-      if(imgContainer && filteredImages.length === 0) {
-        imgContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem; background:#f1f5f9; border-radius:2rem;">🔍 No image tools match "${term}". Try another keyword.</div>`;
-      }
-      if(pdfContainer && filteredPdfs.length === 0) {
-        pdfContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem; background:#f1f5f9; border-radius:2rem;">📄 No PDF tools match "${term}". Try "merge" or "compress".</div>`;
-      }
+  // elegant toast system
+  function showToast(message, duration = 2200) {
+    let toastContainer = document.getElementById('customToastContainer');
+    if (!toastContainer) {
+      toastContainer = document.createElement('div');
+      toastContainer.id = 'customToastContainer';
+      toastContainer.style.position = 'fixed';
+      toastContainer.style.bottom = '28px';
+      toastContainer.style.left = '50%';
+      toastContainer.style.transform = 'translateX(-50%)';
+      toastContainer.style.zIndex = '9999';
+      toastContainer.style.display = 'flex';
+      toastContainer.style.flexDirection = 'column';
+      toastContainer.style.alignItems = 'center';
+      toastContainer.style.gap = '10px';
+      toastContainer.style.pointerEvents = 'none';
+      document.body.appendChild(toastContainer);
     }
-  }
-
-  function showToast(message) {
-    const toast = document.getElementById('toastMsg');
-    if(!toast) return;
-    toast.innerHTML = `<i class="fas fa-cog"></i> ${message}`;
-    toast.classList.add('show');
+    const toast = document.createElement('div');
+    toast.innerText = message;
+    toast.style.background = '#0f172ad9';
+    toast.style.backdropFilter = 'blur(10px)';
+    toast.style.color = 'white';
+    toast.style.padding = '10px 24px';
+    toast.style.borderRadius = '40px';
+    toast.style.fontSize = '0.85rem';
+    toast.style.fontWeight = '500';
+    toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+    toast.style.border = '1px solid rgba(255,255,255,0.15)';
+    toast.style.fontFamily = "'Inter', sans-serif";
+    toast.style.pointerEvents = 'none';
+    toastContainer.appendChild(toast);
     setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2500);
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.25s';
+      setTimeout(() => toast.remove(), 250);
+    }, duration);
   }
 
-  // search event handlers
-  searchButton.addEventListener('click', () => {
-    filterAllTools(searchInput.value);
-  });
-
-  searchInput.addEventListener('keyup', (e) => {
-    if(e.key === 'Enter') {
-      filterAllTools(searchInput.value);
-    }
-    // optional: if input cleared, reset to full list after empty string
-    if (searchInput.value === '') {
-      renderTools(imageTools, 'imageToolsGrid');
-      renderTools(pdfTools, 'pdfToolsGrid');
-    }
-  });
-
-  // reset search when clicking 'x' idea: but also on empty field blur?
-  searchInput.addEventListener('input', function() {
-    if(this.value === '') {
-      renderTools(imageTools, 'imageToolsGrid');
-      renderTools(pdfTools, 'pdfToolsGrid');
-    } else if (this.value.length > 0) {
-      // live search optional (but we reduce API calls style) => partial UX
-      // only if you want live filtering, otherwise use button. Let's enable smooth live search
-      filterAllTools(this.value);
-    }
-  });
-
-  // load some modern micro-interactions: tooltip stats
-  const statItems = document.querySelectorAll('.stat-item');
-  statItems.forEach(stat => {
-    stat.style.cursor = 'default';
-    stat.addEventListener('click', () => {
-      if(stat.innerText.includes('Image Tools')) showToast('18 powerful image utilities available');
-      else if(stat.innerText.includes('PDF Tools')) showToast('12 PDF tools: merge, split, compress & more');
-      else if(stat.innerText.includes('Free')) showToast('All tools are completely free, no hidden costs');
-      else if(stat.innerText.includes('Instant')) showToast('Client-side processing ensures speed & privacy');
-    });
-  });
-
-  // additional small effect: logo click reset search + re-render
-  const logoElem = document.querySelector('.logo');
-  if(logoElem) {
-    logoElem.addEventListener('click', () => {
-      searchInput.value = '';
-      renderTools(imageTools, 'imageToolsGrid');
-      renderTools(pdfTools, 'pdfToolsGrid');
-      showToast('🏠 Reset to full toolkit view');
+  function updateCategoryActive(category) {
+    const btns = document.querySelectorAll('.cat-btn');
+    btns.forEach(btn => {
+      const btnCat = btn.getAttribute('data-cat');
+      if (btnCat === category) btn.classList.add('active');
+      else btn.classList.remove('active');
     });
   }
 
-  // Navigation links simple demo interaction
-  const navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      if(link.innerText.includes('Image Tools')) {
+  function bindCategoryEvents() {
+    const catBtns = document.querySelectorAll('.cat-btn');
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const category = btn.getAttribute('data-cat');
+        activeCategory = category;
+        updateCategoryActive(category);
+        renderTools();
+        // Smooth scroll slightly to tools section
+        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
+
+  function bindSearchEvents() {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
+    const performSearch = () => {
+      searchQuery = searchInput.value.trim();
+      renderTools();
+      if (searchQuery) {
+        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+      }
+    };
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') performSearch();
+    });
+  }
+
+  // Additional hyperlink navigation for top menu links (anchor smooth)
+  function bindNavHyperlinks() {
+    const navImage = document.getElementById('navImageLink');
+    const navPdf = document.getElementById('navPdfLink');
+    const navAll = document.getElementById('navAllLink');
+
+    if (navImage) {
+      navImage.addEventListener('click', (e) => {
         e.preventDefault();
-        document.querySelector('.section-title i.fa-camera')?.scrollIntoView({ behavior: 'smooth' });
-        showToast('Scroll to Image Tools section');
-      } else if(link.innerText.includes('PDF Tools')) {
+        activeCategory = "image";
+        searchQuery = "";
+        document.getElementById("searchInput").value = "";
+        updateCategoryActive("image");
+        renderTools();
+        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+        showToast("Showing all Image tools 🖼️");
+      });
+    }
+    if (navPdf) {
+      navPdf.addEventListener('click', (e) => {
         e.preventDefault();
-        const pdfSection = document.querySelectorAll('.section-title')[1];
-        pdfSection?.scrollIntoView({ behavior: 'smooth' });
-        showToast('PDF Power Suite section');
-      } else if(link.innerText.includes('Pro')) {
+        activeCategory = "pdf";
+        searchQuery = "";
+        document.getElementById("searchInput").value = "";
+        updateCategoryActive("pdf");
+        renderTools();
+        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+        showToast("Showing all PDF tools 📄");
+      });
+    }
+    if (navAll) {
+      navAll.addEventListener('click', (e) => {
         e.preventDefault();
-        showToast('🚀 Pro version coming soon — more cloud features!');
-      } else if(link.innerText === 'Home') {
+        activeCategory = "all";
+        searchQuery = "";
+        document.getElementById("searchInput").value = "";
+        updateCategoryActive("all");
+        renderTools();
+        document.getElementById("toolsGridContainer").scrollIntoView({ behavior: "smooth" });
+        showToast("Complete toolkit — all tools available ✨");
+      });
+    }
+    // Logo home link
+    const logoLink = document.querySelector('.logo');
+    if (logoLink) {
+      logoLink.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        e.preventDefault();
-        showToast('✨ Feature under active development');
-      }
-    });
-  });
+        activeCategory = "all";
+        searchQuery = "";
+        document.getElementById("searchInput").value = "";
+        updateCategoryActive("all");
+        renderTools();
+        showToast("Welcome to ToolForge dashboard");
+      });
+    }
+  }
 
-  // Add nice hover and ensure responsive cards reflow
-  window.addEventListener('resize', () => {});
-  console.log("PixelForge Tools — fully responsive, interactive UI with demo handlers");
+  // optional: add dynamic demo link guard for "Pro Plans" & external links
+  function enhanceExternalLinks() {
+    const proBtn = document.querySelector('.btn-outline-light');
+    if (proBtn) {
+      proBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast("🌟 Upgrade to Pro: advanced batch processing & priority support (demo)");
+      });
+    }
+    const footerLinks = document.querySelectorAll('.footer a');
+    footerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast(`ℹ️ ${link.innerText} — coming soon. Demo navigation.`);
+      });
+    });
+  }
+
+  function init() {
+    renderTools();
+    bindCategoryEvents();
+    bindSearchEvents();
+    bindNavHyperlinks();
+    enhanceExternalLinks();
+  }
+
+  init();
 </script>
 </body>
 </html>
